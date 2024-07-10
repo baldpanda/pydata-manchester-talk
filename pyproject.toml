@@ -11,6 +11,10 @@ packages = [
 [tool.poetry.dependencies]
 python = "^3.10"
 haystack-ai = "^2.2.4"
+boilerpy3 = "^1.0.7"
+torch = "2.2.0"
+sentence-transformers = "^3.0.1"
+python-dotenv = "^1.0.1"
 
 
 [tool.poetry.group.dev.dependencies]
