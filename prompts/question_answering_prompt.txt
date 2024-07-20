@@ -1,0 +1,9 @@
+You have to answer the following question based on the given context information only.
+
+Context:
+{% for document in documents %}
+    {{ document.content }}
+{% endfor %}
+
+Question: {{question}}
+Answer:
