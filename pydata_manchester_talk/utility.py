@@ -19,3 +19,13 @@ def read_natural_questions_data(file_path):
             wiki_docs.append(json.loads(line))
 
     return wiki_docs
+
+def get_ground_truth_chunks(document_chunks, long_answer):
+    """Gets the ground truth chunks"""
+    chunks_containing_long_answer = []
+    if long_answer.strip(" ") == "":
+        return []
+    for chunk in document_chunks:
+        if long_answer in chunk.content:
+            chunks_containing_long_answer.append(chunk)
+    return chunks_containing_long_answer
