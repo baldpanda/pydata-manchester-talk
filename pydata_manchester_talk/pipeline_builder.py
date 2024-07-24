@@ -66,19 +66,25 @@ class RagPipelineBuilder:
         self.prompt_template = prompt_template
 
     def build_pipeline(self):
+
+        # Responsuible for embedding the query text
         self.pipeline.add_component(
             "query_embedder",
             SentenceTransformersTextEmbedder(
                 model="sentence-transformers/all-MiniLM-L6-v2"
             ),
         )
+        # Responsible for retrieving the top k documents
         self.pipeline.add_component(
             "retriever", InMemoryEmbeddingRetriever(self.document_store, top_k=3)
         )
+        # Responsible for building the prompt with the required parameters (show prompt)
         self.pipeline.add_component(
             "prompt_builder", PromptBuilder(template=self.prompt_template)
         )
+        # Responsible for generating the answer with the given prompt
         self.pipeline.add_component("generator", OpenAIGenerator(model="gpt-3.5-turbo"))
+        #  Useful for gathering the answers and metadata from the different parts of the pipeline
         self.pipeline.add_component("answer_builder", AnswerBuilder())
 
         self.pipeline.connect("query_embedder", "retriever.query_embedding")
