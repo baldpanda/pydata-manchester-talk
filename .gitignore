@@ -163,3 +163,5 @@ cython_debug/
 /data
 *.DS_Store
 notebooks/images/*
+notebooks/.streamlit/*
+notebooks/default.sqlite
