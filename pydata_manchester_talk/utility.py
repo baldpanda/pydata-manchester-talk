@@ -2,9 +2,12 @@ from haystack import Document
 import json
 
 
-def get_long_answer(document):
+def get_long_answer(document: dict) -> str:
+    """Gets the long answer from natural question data."""
     document_text = document.get("document_text")
     annotations = document.get("annotations")
+    if not annotations:
+        return ""
     long_answer = document_text.split(" ")[
         annotations[0]
         .get("long_answer")
