@@ -6,6 +6,8 @@ Planning on giving a talk at PyData Manchester on July 30th.
 
 Having worked helping businesses adopt LLM workflows such as RAG pipelines and function calling, a common challenge is benchmarking and measuring how well the application is performing. This talk aims to explore some of the existing open-source tooling to help with this and look at some best practices when building out such applications.
 
+[Notebook](https://github.com/baldpanda/pydata-manchester-talk/blob/main/notebooks/pydata_manchester_demo.ipynb) used for talk
+
 ### Getting Started 
 
 Here are some steps for getting started with the repo:
